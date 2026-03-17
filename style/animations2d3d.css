@@ -1,0 +1,175 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'DM Mono', monospace;
+  background: #050812;
+  color: #e9f0ff;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.demo-layout {
+  width: min(960px, 95vw);
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 45px rgba(0,0,0,0.45);
+}
+
+header { margin-bottom: 14px; }
+header h1 { margin: 0 0 8px; font-size: clamp(1.4rem, 5vw, 2rem); }
+header p { margin: 0 0 8px; color: #a7b2ce; }
+.back {
+  display: inline-block;
+  text-decoration: none;
+  color: #00f5c4;
+  border: 1px solid rgba(0,245,196,0.4);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.card {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10, 20, 35, 0.9);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.card h2 { margin: 0 0 10px; font-size: 1rem; }
+
+.row { display: flex; flex-wrap: wrap; gap: 10px; }
+.tile {
+  flex: 1 1 160px;
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: #0e172c;
+  color: #c9d4e8;
+  font-weight: 700;
+      margin-top: 50px;
+}
+
+.tile-translate { transform: translate(18px, 10px); }
+.tile-rotate { transform: rotate(25deg); }
+.tile-scale { transform: scale(1.2, 0.8); }
+.tile-skew { transform: skew(12deg, 5deg); }
+.tile-matrix { transform: matrix(1, 0.2, -0.2, 1, 10, 10); }
+
+.tile-rotateX { transform: rotateX(25deg); }
+.tile-rotateY { transform: rotateY(25deg); }
+.tile-rotateZ { transform: rotateZ(18deg); }
+.tile-trans3d { transform: translate3d(20px, -8px, 20px); }
+.tile-matrix3d { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 20, 20, 0, 1); }
+
+.card-3d .perspective-wrap {
+  perspective: 600px;
+  margin-top: 10px;
+  height: 180px;
+  display: grid;
+  place-items: center;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.cube:hover { transform: rotateX(-20deg) rotateY(20deg); }
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(56, 95, 255, 0.2);
+  color: #f3f8ff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.row-matrix { margin-top: 10px; }
+.small { font-size: 0.75rem; color: #9eadcf; margin-top: 8px; }
+
+.transition-row { margin-top: 10px; }
+.transition-box {
+  margin-top: 8px;
+  width: 130px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: #1e2b52;
+  text-align: center;
+  color: white;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.transition-box:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #00f5c4;
+  color: #0b1120;
+}
+
+.anim-row { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+.spin-box {
+  width: 100px; height: 100px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b, #7c3aed);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  animation: spin 2.2s linear infinite;
+  color: #fff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.front { transform: translateZ(50px); }
+.back { transform: rotateY(180deg) translateZ(50px); }
+.right { transform: rotateY(90deg) translateZ(50px); }
+.left { transform: rotateY(-90deg) translateZ(50px); }
+.top { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.card-animation {
+  display: grid;
+  gap: 10px;
+}
+.anim-btn {
+  width: fit-content;
+  border: none;
+  background: #00f5c4;
+  color: #03121d;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+.anim-btn:hover { transform: translateY(-4px) scale(1.05); background: #7c3aed; color: #fff; }
+
+.pulse-box {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #2378ff, #7c3aed);
+  animation: pulse 2s ease-in-out infinite;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124,58,237,0.15); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(124,58,237,0.02); }
+}

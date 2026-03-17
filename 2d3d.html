@@ -3,12 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS 2D & 3D Demo</title>
+  <title>CSS 2D & 3D Transform Demo</title>
   <link rel="stylesheet" href="style/animations2d3d.css">
 </head>
-
 <body>
+  <main class="demo-layout">
+    <header>
+      <h1>CSS 2D & 3D Transform Playground</h1>
+      <p>Live examples of your theory for transform, transition, and animation.</p>
+      <a class="back" href="index.html">← Back to Main</a>
+    </header>
 
+    <section class="card card-2d">
+      <h2>1. 2D Transformations</h2>
+      <div class="row">
+        <div class="tile tile-translate">translate(50px, 10px)</div>
+        <div class="tile tile-rotate">rotate(25deg)</div>
+        <div class="tile tile-scale">scale(1.2, 0.8)</div>
+        <div class="tile tile-skew">skew(12deg, 6deg)</div>
+      </div>
+      <div class="row row-matrix">
+        <div class="tile tile-matrix">matrix(1, 0.2, -0.2, 1, 10, 10)</div>
+      </div>
+      <p class="small">matrix(a, b, c, d, e, f) combines translate, scale, skew, and rotate.</p>
+    </section>
 
+    <section class="card card-3d">
+      <h2>2. 3D Transformations + Perspective</h2>
+      <div class="row">
+        <div class="tile tile-rotateX">rotateX(25deg)</div>
+        <div class="tile tile-rotateY">rotateY(25deg)</div>
+        <div class="tile tile-rotateZ">rotateZ(18deg)</div>
+      </div>
+      <div class="perspective-wrap">
+        <div class="cube">
+          <div class="face front">front</div>
+          <div class="face back">back</div>
+          <div class="face right">right</div>
+          <div class="face left">left</div>
+          <div class="face top">top</div>
+          <div class="face bottom">bottom</div>
+        </div>
+      </div>
+      <div class="row row-3d">
+        <div class="tile tile-trans3d">translate3d(20px, -8px, 20px)</div>
+        <div class="tile tile-matrix3d">matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 20, 20, 0, 1)</div>
+      </div>
+      <p class="small">Use perspective on a parent to reveal depth.</p>
+    </section>
+
+    <section class="card card-transitions">
+      <h2>3. CSS Transitions</h2>
+      <p class="small">transition: transform 0.3s ease, background 0.25s ease;</p>
+      <div class="transition-row">
+        <div class="transition-box">Hover me</div>
+      </div>
+    </section>
+
+    <section class="card card-animation">
+      <h2>4. CSS Animations + 5. Keyframes</h2>
+      <p class="small">animation: spin 2s ease-in-out infinite;</p>
+      <div class="anim-row">
+        <div class="spin-box">Spin</div>
+        <div class="pulse-box"></div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
